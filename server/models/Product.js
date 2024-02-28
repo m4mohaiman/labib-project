@@ -21,7 +21,7 @@ const ProductSchema = new mongoose.Schema(
       unique: true,
     },
     size: {
-      type: number,
+      type: Number,
       required: true,
     },
     category: {
@@ -48,7 +48,7 @@ const ProductSchema = new mongoose.Schema(
       unique: true,
     },
     price: {
-      type: number,
+      type: Number,
       required: true,
     },
     comments: [
