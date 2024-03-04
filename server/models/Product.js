@@ -51,6 +51,10 @@ const ProductSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    inStock : {
+      type:Boolean,
+      default:true,
+    },
     comments: [
       {
         type: mongoose.Schema.Types.ObjectId,
