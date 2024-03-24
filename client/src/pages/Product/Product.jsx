@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Announcement from "../../components/Announcement/Announcement";
 import Navbar from "../../components/Navbar/Navbar";
@@ -6,11 +6,13 @@ import Newsletter from "../../components/Newsletter/Newsletter";
 import Footer from "../../components/Footer/Footer";
 import { Add, Remove } from "@material-ui/icons";
 import { mobile } from "../../responsive";
+import { useLocation } from "react-router-dom/cjs/react-router-dom";
+import { publicRequest } from "../../requestMethod";
 
 const Wrapper = styled.div`
   padding: 50px;
   display: flex;
-  ${mobile({ padding: "10px", flexDirection:"column" })}
+  ${mobile({ padding: "10px", flexDirection: "column" })}
 `;
 
 const ImgContainer = styled.div`
@@ -114,6 +116,20 @@ const Button = styled.button`
   }
 `;
 const Product = () => {
+  const location = useLocation();
+  const id = location.pathname.split("/")[2];
+  const { product, setProduct } = useState({});
+
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const res = publicRequest.get("/products/find" + id);
+        setProduct(res.data);
+      } catch {}
+      getProduct();
+    };
+  }, [id]);
+
   return (
     <>
       <Navbar></Navbar>
