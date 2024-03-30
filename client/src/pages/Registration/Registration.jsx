@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from "styled-components";
 import { mobile } from "../../responsive";
 
@@ -55,11 +54,10 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-
-const Registration = () => {
+const Register = () => {
   return (
-    <Container >
-         <Wrapper>
+    <Container>
+      <Wrapper>
         <Title>CREATE AN ACCOUNT</Title>
         <Form>
           <Input placeholder="name" />
@@ -76,7 +74,7 @@ const Registration = () => {
         </Form>
       </Wrapper>
     </Container>
-  )
-}
+  );
+};
 
-export default Registration
+export default Register;

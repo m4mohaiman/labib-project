@@ -1,44 +1,46 @@
-import Homepage from "./pages/Home/Homepage";
-import Product from "./pages/Product/Product";
+
+import Home from "./pages/Home/Homepage";
 import ProductList from "./pages/ProductList/ProductList";
-
-import Cart from "./pages/Cart/Cart";
+import Register from "./pages/Registration/Registration";
 import Login from "./pages/Login/Login";
-import Registration from "./pages/Registration/Registration";
-
+import Cart from "./pages/Cart/Cart";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
+  Redirect,
 } from "react-router-dom";
+import Success from "./pages/Success/Success";
+import { useSelector } from "react-redux";
+import Product from "./pages/Product/Product";
 
 const App = () => {
-  const user = true;
-  return(
+  const user = useSelector((state) => state.user.currentUser);
+  return (
     <Router>
       <Switch>
         <Route exact path="/">
-          <Homepage/>
+          <Home />
         </Route>
         <Route path="/products/:category">
-          <ProductList/>
+          <ProductList />
         </Route>
         <Route path="/product/:id">
           <Product/>
         </Route>
         <Route path="/cart">
-          <Cart/>
+          <Cart />
         </Route>
-        <Route path="/login">
-          { user ? <Redirect to="/"/> : <Login/> }
+        <Route path="/success">
+          <Success/>
         </Route>
+        <Route path="/login">{user ? <Redirect to="/" /> : <Login />}</Route>
         <Route path="/register">
-          { user ? <Redirect to="/"/> : <Registration/> }
+          {user ? <Redirect to="/" /> : <Register />}
         </Route>
       </Switch>
     </Router>
-  )
+  );
 };
 
 export default App;
