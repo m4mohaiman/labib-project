@@ -5,6 +5,8 @@ import styled from "styled-components";
 import { mobile } from "../../responsive";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import './navbar.css';
+
 
 const Container = styled.div`
   height: 60px;
@@ -61,7 +63,7 @@ const Right = styled.div`
   ${mobile({ flex: 2, justifyContent: "center" })}
 `;
 
-const MenuItem = styled.div`
+const MenuItem = styled.a`
   font-size: 14px;
   cursor: pointer;
   margin-left: 25px;
@@ -81,11 +83,11 @@ const Navbar = () => {
           </SearchContainer>
         </Left>
         <Center>
-          <Logo>Labib.</Logo>
+          <Link className="logo" to="/">Labib.</Link>
         </Center>
         <Right>
-          <MenuItem>REGISTER</MenuItem>
-          <MenuItem>SIGN IN</MenuItem>
+          <Link className="menuitem" to="/register">REGISTER</Link>
+          <Link className="menuitem" to="/login">SIGN IN</Link>
           <Link to="/cart">
           <MenuItem>
             <Badge badgeContent={quantity} color="primary">

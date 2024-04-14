@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import { userRequest } from "../../requestMethod";
 import { useHistory } from "react-router";
 
-const KEY = 'pk_test_51JXYIiLUkaywcbNzShc6WQifdJrGo1ToPBrApjl5YvW5r6gJXRM0yrwlIKPcRs54wtjnny0OMBQ8WjaX6XzeMeMR00RjKApqTlß';
+//const KEY = 'pk_test_51JXYIiLUkaywcbNzShc6WQifdJrGo1ToPBrApjl5YvW5r6gJXRM0yrwlIKPcRs54wtjnny0OMBQ8WjaX6XzeMeMR00RjKApqTlß';
 
 const Container = styled.div``;
 
